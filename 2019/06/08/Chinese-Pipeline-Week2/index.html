@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chinese Pipeline：Week2 · Ziyi&#39;s Blog</title>
+    <title>Chinese Pipeline：Audios playing and audios editting · Ziyi&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">Ziyi&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Chinese Pipeline：Week2</a>
+                <a href="#" class="post-name">Chinese Pipeline：Audios playing and audios editting</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Chinese Pipeline：Week2
+            Chinese Pipeline：Audios playing and audios editting
             <!-- 404 -->
             
         </h1>
@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">738</span>阅读时长: <span class="post-count reading-time">4 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">370</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -395,9 +395,9 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>This week I did a really onerous work——I manually annotated the data which means we now have a test set! Me and Zhaoqing consider this is the least error-proof method for there are numbers that needed to be replaced by characters and punctuation needed to be deleted and other works needed to be done manually. I also think the deep understanding the dataset is important and it’s a opportunity to learn dataset in details. The ASR for news program like Xinwenlianbo is not like quotidian conversation. It has its own characteristcs. In this week, I also discuss with Qibin and Yifan who is the student of Chinese OCR. So, it’s quite a substantial week!</p>
-<h2 id="How-to-play-audios-in-HPC"><a href="#How-to-play-audios-in-HPC" class="headerlink" title="How to play audios in HPC"></a>How to play audios in HPC</h2><p>This is very important. Prof Steen installed Sox for us. Sox is a powerful tool for audio editting. However, for some reasons I didn’t know, I couldn’t use Sox in my image, but I can use it on my local computer. So, I guess it’s because of the cluster environment, maybe I don’t have the authorities.</p>
-<p>Prof Steen advised me to use netcat.<br>Netcat is a featured networking utility which reads and writes data across network connections, using the TCP/IP protocol. I transfer all the audios to my computers and I found it really helpful for I don’t need to edit text in cluster. I can edit all the texts and transfer back to HPC. It’s less time-comsuming because there are often delays in cluster and sometimes my connection will automatically break in an hour. </p>
+        <h2 id="How-to-play-audios-in-HPC"><a href="#How-to-play-audios-in-HPC" class="headerlink" title="How to play audios in HPC"></a>How to play audios in HPC</h2><p>Prof Steen installed Sox for us. Sox is a powerful tool for audio editting. However, for some reasons I didn’t know, I couldn’t use Sox in my image, but I can use it on my local computer. Prof Steen advised me to use netcat. This method didn’t solve the problem directly, but it’s efficient.</p>
+<p>Netcat is a featured networking utility which reads and writes data across network connections, using the TCP/IP protocol. You can transfer all the audios to my computers and I found it really helpful for I don’t need to edit text in cluster. I can edit all the texts and transfer back to HPC. It’s less time-comsuming because there are often delays in cluster and sometimes my connection will automatically break in an hour. </p>
+<p>Finally, this is my way to solve the problem, and I can play the audio in my local computer.</p>
 <h3 id="How-to-use-netcat-to-transfer-the-whole-directory"><a href="#How-to-use-netcat-to-transfer-the-whole-directory" class="headerlink" title="How to use netcat to transfer the whole directory"></a>How to use netcat to transfer the whole directory</h3><p>Suppose that A is going to transfer files to B.</p>
 <p>Firstly, B starts the listening</p>
 <pre><code>nc -l port | tar xfvz -
@@ -411,16 +411,14 @@ height:50vh;
 <p>And you can access to the directory and play the audio by Chrome.</p>
 <p>One problem is that it needs uploading. A ten-second audio needs 10 seconds to upload and it’s definitely not a good experience. </p>
 <p>If you want to check one or two audios, it’s best to use Chrome. But if you need to check all the audios like me, transfering to local is the best choice.</p>
-<h2 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h2><h3 id="Resplit-or-recombine-some-audios"><a href="#Resplit-or-recombine-some-audios" class="headerlink" title="Resplit or recombine some audios"></a>Resplit or recombine some audios</h3><p>There are several audio lasting for almost 1 minutes and I resplit them with shorter padding duration. Also, there are audios which last only 1 or 2 seconds and I combine them so they can make up a complete sentence.</p>
-<p>Such problem is inevitable for everyone speaks at different speeds. After the testing, if we need to split all the audios, it’s necessary to filter out the long audios and split them again. </p>
-<h3 id="Some-characteristics-about-Chinese-news-programs"><a href="#Some-characteristics-about-Chinese-news-programs" class="headerlink" title="Some characteristics about Chinese news programs"></a>Some characteristics about Chinese news programs</h3><p>As I said above, news program has its own characteristics.</p>
-<ol>
-<li>Wording and phrasing are quite succinct and brief. It’s even obscure for native speakers. For example “建言资政”, you can know the meaning by the character, but it’s hard to come out these characters immediately when listening. </li>
-<li>There are so many names——both person names and location names. And location names are usually not common, it might be a unknown village. If the pipeline can’t recognize the name and regard it as a word or even break the name and recombine them with neighbouring characters, the result won’t be satisfying.</li>
-<li>There are foreign languages, not much, but they exist in almost every episode. </li>
-</ol>
-<h2 id="The-following-work"><a href="#The-following-work" class="headerlink" title="The following work"></a>The following work</h2><p>Next week, I will test the modal by using the test set I made.<br>Also,I think it’s necessary to learn the Baidu’s modal and the training corpora they use.<br>We need to consider whether to use new corpora to train, or even use new modal. I turned to Yifan for help this week, for it’s important to get subtitles for NLP pipeline. Most news programs don’t have subtitles, but variety shows and TV plays have. Yifan said he will build the OCR pipeline in July, I guess that will match the time I begin to build NLP pipeline.</p>
-
+<h2 id="Combining-audios"><a href="#Combining-audios" class="headerlink" title="Combining audios"></a>Combining audios</h2><p>Also use SOX to combine audios.</p>
+<p>In terminal</p>
+<pre><code>sox file1.wav file2.wav file3.wav output.wav
+</code></pre><p>In python</p>
+<pre><code>import sox
+cbn=sox.Combiner()
+cbn.build([&apos;file1.wav&apos;,&apos;file2.wav&apos;,&apos;file3.wav&apos;],&apos;output.wav&apos;,&apos;concatenate&apos;)
+</code></pre>
     </article>
     <!-- license  -->
     
@@ -428,7 +426,7 @@ height:50vh;
             <p>原文作者：<a href="http://liuziyi219.github.io">Ziyi Liu</a>
             </p><p>原文链接：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week2/">http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week2/</a>
             </p><p>发表日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week2/">June 8th 2019, 10:22:31 pm</a>
-            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week2/">June 9th 2019, 12:43:54 am</a>
+            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week2/">June 16th 2019, 4:34:41 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -436,12 +434,17 @@ height:50vh;
     <ul class="post-paginator">
         <li class="next">
             
+                <div class="nextSlogan">Next Post</div>
+                <a href="/2019/06/08/Chinese-Pipeline-Week1/" title="Chinese Pipeline：usage of WebrtcVAD">
+                    <div class="nextTitle">Chinese Pipeline：usage of WebrtcVAD</div>
+                </a>
+            
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/01/Chinese-Pipeline-Week1/" title="Chinese Pipeline: Week1">
-                    <div class="prevTitle">Chinese Pipeline: Week1</div>
+                <a href="/2019/06/01/Chinese-Pipeline-Community-Bonding/" title=" Chinese Pipeline: access to HPC and usage of Singularity">
+                    <div class="prevTitle"> Chinese Pipeline: access to HPC and usage of Singularity</div>
                 </a>
             
         </li>
@@ -553,7 +556,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-play-audios-in-HPC"><span class="toc-number">1.</span> <span class="toc-text">How to play audios in HPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-use-netcat-to-transfer-the-whole-directory"><span class="toc-number">1.1.</span> <span class="toc-text">How to use netcat to transfer the whole directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Chrome-to-play-the-audio"><span class="toc-number">1.2.</span> <span class="toc-text">Use Chrome to play the audio</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Annotations"><span class="toc-number">2.</span> <span class="toc-text">Annotations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Resplit-or-recombine-some-audios"><span class="toc-number">2.1.</span> <span class="toc-text">Resplit or recombine some audios</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Some-characteristics-about-Chinese-news-programs"><span class="toc-number">2.2.</span> <span class="toc-text">Some characteristics about Chinese news programs</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#The-following-work"><span class="toc-number">3.</span> <span class="toc-text">The following work</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#How-to-play-audios-in-HPC"><span class="toc-number">1.</span> <span class="toc-text">How to play audios in HPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#How-to-use-netcat-to-transfer-the-whole-directory"><span class="toc-number">1.1.</span> <span class="toc-text">How to use netcat to transfer the whole directory</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Use-Chrome-to-play-the-audio"><span class="toc-number">1.2.</span> <span class="toc-text">Use Chrome to play the audio</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Combining-audios"><span class="toc-number">2.</span> <span class="toc-text">Combining audios</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
@@ -593,9 +596,16 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 4
         </div>
         <!-- search  -->
         
@@ -611,17 +621,22 @@ top:50vh;
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week2/">Chinese Pipeline：Week2</a>
+            <span class="archive-post-date">06/16</span><a class="archive-post-title" href="/2019/06/16/Chinese-Pipeline-week3/">Chinese Pipeline:An introduction to the Chinese news test set</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/"> Chinese Pipeline: Community Bonding</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week2/">Chinese Pipeline：Audios playing and audios editting</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Week1/">Chinese Pipeline: Week1</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week1/">Chinese Pipeline：usage of WebrtcVAD</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/"> Chinese Pipeline: access to HPC and usage of Singularity</a>
         </li>
     
     </ul></div>

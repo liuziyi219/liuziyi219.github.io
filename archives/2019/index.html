@@ -346,12 +346,40 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/06/08/Chinese-Pipeline-Week2/">
+        <a class="abstract-title" href="/2019/06/16/Chinese-Pipeline-week3/">
             
-                <span>Chinese Pipeline：Week2</span>
+                <span>Chinese Pipeline:An introduction to the Chinese news test set</span>
         </a>
         <div class="abstract-content">
-            This week I did a really onerous work——I manually annotated the data which means we now have a test set! Me and Zhaoqing consider this is the least error-proof method for there are numbers that needed to be replaced by characters and punctuation needed to be deleted and other works needed to be d...
+            I spent more than a week making this test set. This contains almost 150 minutes of voice. I made the correct text for each audio, so we can calculate exactly how well the performance of ASR Chinese Pipeline is.
+SourcesThe data is from 新闻联播(xinwenlianbo). We extract 5 episodes which are from 2019....
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/16</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/06/08/Chinese-Pipeline-Week1/">
+            
+                <span>Chinese Pipeline：usage of WebrtcVAD</span>
+        </a>
+        <div class="abstract-content">
+            WebrtcVADA VAD classifies a piece of audio data as being voiced or unvoiced.
+InstallationInstall the webrtcvad module
+pip install webrtcvad
+Preparing the audiosRedhen only have mp4 format videos. So, we need to transform the video to audios by ffmpeg. 
+FFmpeg is a powerful tool for format convert...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -369,18 +397,17 @@
     
     
     <article class="index-post">
-        <a class="abstract-title" href="/2019/06/01/Chinese-Pipeline-Week1/">
+        <a class="abstract-title" href="/2019/06/08/Chinese-Pipeline-Week2/">
             
-                <span>Chinese Pipeline: Week1</span>
+                <span>Chinese Pipeline：Audios playing and audios editting</span>
         </a>
         <div class="abstract-content">
-            This week, my main job is to spilt the audio using webrtcVAD. Since we don’t have a player in the cluster, I firstly tested the performance in my local computer. In this blog, I will introduce you how to use webrtcVAD and the parameters in it.
-WebrtcVADA VAD classifies a piece of audio data as be...
+            How to play audios in HPCProf Steen installed Sox for us. Sox is a powerful tool for audio editting. However, for some reasons I didn’t know, I couldn’t use Sox in my image, but I can use it on my local computer. Prof Steen advised me to use netcat. This method didn’t solve the problem directly, ...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
             <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/01</span>
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/08</span>
             </div>
             <!-- tags  -->
             
@@ -395,7 +422,7 @@ WebrtcVADA VAD classifies a piece of audio data as be...
     <article class="index-post">
         <a class="abstract-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/">
             
-                <span> Chinese Pipeline: Community Bonding</span>
+                <span> Chinese Pipeline: access to HPC and usage of Singularity</span>
         </a>
         <div class="abstract-content">
             It’s really exciting to work with Red Hen this summer! And I will record the whole work in my blog. 
@@ -528,9 +555,16 @@ Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets f
     
     
     
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 3
+        Total : 4
         </div>
         <!-- search  -->
         
@@ -546,17 +580,22 @@ Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets f
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week2/">Chinese Pipeline：Week2</a>
+            <span class="archive-post-date">06/16</span><a class="archive-post-title" href="/2019/06/16/Chinese-Pipeline-week3/">Chinese Pipeline:An introduction to the Chinese news test set</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/"> Chinese Pipeline: Community Bonding</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week2/">Chinese Pipeline：Audios playing and audios editting</a>
         </li>
     
     
         <li class="archive-post-item">
-            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Week1/">Chinese Pipeline: Week1</a>
+            <span class="archive-post-date">06/08</span><a class="archive-post-title" href="/2019/06/08/Chinese-Pipeline-Week1/">Chinese Pipeline：usage of WebrtcVAD</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/01</span><a class="archive-post-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/"> Chinese Pipeline: access to HPC and usage of Singularity</a>
         </li>
     
     </ul></div>
