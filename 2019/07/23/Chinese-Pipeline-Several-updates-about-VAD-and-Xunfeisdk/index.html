@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chinese Pipeline:An introduction to the Chinese news test set · Ziyi&#39;s Blog</title>
+    <title>Chinese Pipeline:Several updates about VAD and Xunfeisdk · Ziyi&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -217,7 +217,7 @@
                 <a href="/">Ziyi&#39;s Blog</a>
             </div>
             <div class="post-title">
-                <a href="#" class="post-name">Chinese Pipeline:An introduction to the Chinese news test set</a>
+                <a href="#" class="post-name">Chinese Pipeline:Several updates about VAD and Xunfeisdk</a>
             </div>
     </div>
     
@@ -247,7 +247,7 @@ height:50vh;
         <h1 class="intro-title">
             <!-- 主页  -->
             
-            Chinese Pipeline:An introduction to the Chinese news test set
+            Chinese Pipeline:Several updates about VAD and Xunfeisdk
             <!-- 404 -->
             
         </h1>
@@ -266,12 +266,12 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">439</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">167</span>阅读时长: <span class="post-count reading-time">1 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
                     <span class="post-intro-calander iconfont-archer">&#xe676;</span>
-                    <span class="post-intro-time">2019/06/16</span>
+                    <span class="post-intro-time">2019/07/23</span>
                     
                     <span id="busuanzi_container_page_pv" class="busuanzi-pv">
                         <span class="iconfont-archer">&#xe602;</span>
@@ -395,28 +395,30 @@ height:50vh;
         <div class="container container-unloaded">
             <main class="main post-page">
     <article class="article-entry">
-        <p>I spent more than a week making this test set. This contains almost 150 minutes of voice. I made the correct text for each audio, so we can calculate exactly how well the performance of ASR Chinese Pipeline is.</p>
-<h2 id="Sources"><a href="#Sources" class="headerlink" title="Sources"></a>Sources</h2><p>The data is from 新闻联播(xinwenlianbo). We extract 5 episodes which are from 2019.03.01 to 2019.03.05. The videos are from redhen gallina and the scripts are from an official <a href="www.xwlbo.com">website</a> which offers everyday news script. </p>
-<h2 id="Audio-length"><a href="#Audio-length" class="headerlink" title="Audio length"></a>Audio length</h2><p>A single audio’s length is mostly in the range of ten seconds to twenty seconds. After the first split, audios longer than thirty seconds are re-segmented, and audios below three seconds are recombined. We also kept a few shorter or longer audio for testing.</p>
-<h2 id="Audio-cuts"><a href="#Audio-cuts" class="headerlink" title="Audio cuts"></a>Audio cuts</h2><p>In every audio, there are lots of advertisements and weather forecast which have loud background sound, so I cut those parts. Also, I kept several audios which only have the background sound as disturbing term to see whether the pipeline can recognize them as non-speech.</p>
-<h2 id="Text"><a href="#Text" class="headerlink" title="Text"></a>Text</h2><p>All text names are the same as the corresponding audio.<br>If the audio is named as “xwlb0304-161.wav”, then its text is “xwlb0304-161.txt”.</p>
-<p> We changed all the arabic numbers into Chinese charactersvand use space to replace punctuation.<br>Here is a text example :</p>
-<pre><code>成员国元首先举行小范围会谈 随后邀请观察员国阿富汗总统加尼 白俄罗斯总统卢卡申科 伊朗总统鲁哈尼 蒙古国总统巴特图勒嘎以及有关国际和地区组织代表参加大范围会谈
-</code></pre><p>Beside the host’s script, the text also include some interviews which are not recorded in news script and this part need manual dictation. Many of these interviews have dialects.</p>
-<h2 id="Some-characteristics-about-this-dataset"><a href="#Some-characteristics-about-this-dataset" class="headerlink" title="Some characteristics about this dataset"></a>Some characteristics about this dataset</h2><ol>
-<li>Wording and phrasing are quite succinct and brief. It’s even obscure for native speakers. For example “建言资政”, you can know the meaning by the character, but it’s hard to come out these characters immediately when listening. </li>
-<li>There are so many names——both person names and location names. And location names are usually not common, it might be a unknown village. If the pipeline can’t recognize the name and regard it as a word or even break the name and recombine them with neighbouring characters, the result won’t be satisfying.</li>
-<li>There are foreign languages, not much, but they exist in almost every episode. </li>
+        <h2 id="Updates-about-WebRTCVad"><a href="#Updates-about-WebRTCVad" class="headerlink" title="Updates about WebRTCVad"></a>Updates about WebRTCVad</h2><ol>
+<li><p>change of the usage<br>initial：<br><code>python audiosplit.py &lt;aggressiveness&gt; &lt;dir to result&gt;</code><br>now: <code>python audiosplit.py &lt;padding duration&gt; &lt;path to wav file/directory&gt; &lt;path to result&gt;</code> </p>
+</li>
+<li><p>two modes<br>Support splitting a single audio or all the audios in a certain file. The latter one is for re-splitting the audios which are longer than 30 seconds.</p>
+<p>To see more details, click <a href="https://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">here</a></p>
+</li>
 </ol>
+<h2 id="Updates-about-Xunfeisdk"><a href="#Updates-about-Xunfeisdk" class="headerlink" title="Updates about Xunfeisdk"></a>Updates about Xunfeisdk</h2><p>Since tuning the parameter needs more labelled dataset, Zhaoqing and I think maybe Xunfei can help us get rid of the onerous work of manually labelling the audios. So I simplify the code to make it more easier to use. </p>
+<ol>
+<li><p>C code to Python<br>The example code that Xunfei offer is written by C. But it is so complicated in string operations. So I change the code into Python. </p>
+</li>
+<li><p>delete punctuation</p>
+</li>
+</ol>
+<p>To see more details and complete usage, click (here)[<a href="https://liuziyi219.github.io/2019/07/06/Chinese-Pipeline-How-to-use-XunfeiSDK/]">https://liuziyi219.github.io/2019/07/06/Chinese-Pipeline-How-to-use-XunfeiSDK/]</a></p>
 
     </article>
     <!-- license  -->
     
         <div class="license-wrapper">
             <p>原文作者：<a href="http://liuziyi219.github.io">Ziyi Liu</a>
-            </p><p>原文链接：<a href="http://liuziyi219.github.io/2019/06/16/Chinese-Pipeline-week3/">http://liuziyi219.github.io/2019/06/16/Chinese-Pipeline-week3/</a>
-            </p><p>发表日期：<a href="http://liuziyi219.github.io/2019/06/16/Chinese-Pipeline-week3/">June 16th 2019, 2:32:14 am</a>
-            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/06/16/Chinese-Pipeline-week3/">June 16th 2019, 4:34:18 am</a>
+            </p><p>原文链接：<a href="http://liuziyi219.github.io/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">http://liuziyi219.github.io/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/</a>
+            </p><p>发表日期：<a href="http://liuziyi219.github.io/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">July 23rd 2019, 11:31:16 pm</a>
+            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">July 24th 2019, 12:01:19 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -425,16 +427,16 @@ height:50vh;
         <li class="next">
             
                 <div class="nextSlogan">Next Post</div>
-                <a href="/2019/06/23/Chinese-Pipeline-week4/" title="Chinese-Pipeline:First experimental result and the comparation of 3 ASR APP">
-                    <div class="nextTitle">Chinese-Pipeline:First experimental result and the comparation of 3 ASR APP</div>
+                <a href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/" title="Chinese Pipeline:Decreaing the sample rate doesn't work">
+                    <div class="nextTitle">Chinese Pipeline:Decreaing the sample rate doesn't work</div>
                 </a>
             
         </li>
         <li class="previous">
             
                 <div class="prevSlogan">Previous Post</div>
-                <a href="/2019/06/08/Chinese-Pipeline-Week1/" title="Chinese Pipeline：usage of WebrtcVAD">
-                    <div class="prevTitle">Chinese Pipeline：usage of WebrtcVAD</div>
+                <a href="/2019/07/06/Chinese-Pipeline-How-to-use-XunfeiSDK/" title="Chinese Pipeline:How to use XunfeiSDK">
+                    <div class="prevTitle">Chinese Pipeline:How to use XunfeiSDK</div>
                 </a>
             
         </li>
@@ -546,7 +548,7 @@ top:50vh;
         <div class="toc-catalog">
             <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
         </div>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Sources"><span class="toc-number">1.</span> <span class="toc-text">Sources</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Audio-length"><span class="toc-number">2.</span> <span class="toc-text">Audio length</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Audio-cuts"><span class="toc-number">3.</span> <span class="toc-text">Audio cuts</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Text"><span class="toc-number">4.</span> <span class="toc-text">Text</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Some-characteristics-about-this-dataset"><span class="toc-number">5.</span> <span class="toc-text">Some characteristics about this dataset</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Updates-about-WebRTCVad"><span class="toc-number">1.</span> <span class="toc-text">Updates about WebRTCVad</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Updates-about-Xunfeisdk"><span class="toc-number">2.</span> <span class="toc-text">Updates about Xunfeisdk</span></a></li></ol>
     </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>

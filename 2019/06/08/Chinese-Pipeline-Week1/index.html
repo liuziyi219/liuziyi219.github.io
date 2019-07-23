@@ -266,7 +266,7 @@ height:50vh;
                 
                 
                     <div class="post-intro-read">
-                        <span>字数统计: <span class="post-count word-count">434</span>阅读时长: <span class="post-count reading-time">2 min</span></span>
+                        <span>字数统计: <span class="post-count word-count">518</span>阅读时长: <span class="post-count reading-time">3 min</span></span>
                     </div>
                 
                 <div class="post-intro-meta">
@@ -404,8 +404,9 @@ height:50vh;
 </code></pre><p>   XXX.mp4 is the input video, and the xxx.wav is the output audio. ‘ac’ is to set the channel and ‘ar’ is to set the sample rate.</p>
 <h3 id="Split-the-audio"><a href="#Split-the-audio" class="headerlink" title="Split the audio"></a>Split the audio</h3><pre><code>To run the files:
 
-python audiosplit.py &lt;aggressiveness&gt; &lt;path to wav file&gt;
+python audiosplit.py &lt;padding duration&gt; &lt;path to wav file/directory&gt; &lt;path to directory&gt;
 </code></pre><p>   The complete code audiosplit.py and sample I used can be found at <a href="https://github.com/liuziyi219/Chinese-pipeline" target="_blank" rel="noopener">repository</a>.</p>
+<p>   Usually, the result won’t be satisfied after the first split. Some of cuts will be quite long. To deal with the audios that are longer than 30 seconds(or you can change into other standards), you can decrease the padding duration and re-split them. You don’t need to select them by yourself. Just assign the directory including all the files, and all audio that are longer than 30s would be selected and re-splitted.</p>
 <h3 id="Explanations-of-parameters"><a href="#Explanations-of-parameters" class="headerlink" title="Explanations of parameters"></a>Explanations of parameters</h3><p>There are several parameters needed to be explained. Some of them are defining, some are not. But I think it’s important to introduce all of them and it will be easier to understand the program.</p>
 <h4 id="aggressiveness-mode"><a href="#aggressiveness-mode" class="headerlink" title="aggressiveness mode"></a>aggressiveness mode</h4><p>You can see ‘aggressiveness’ in ‘run the files’. This parameter is used to filter out non-speech. It’s an integer between 0 and 3. 0 is the least aggressive about filtering out non-speech, 3 is the most aggressive. If you set the aggressiveness ‘0’, then you will find many non-speech parts which may last for 1 or 2 seconds in the result. However, if you set the aggressiveness ‘3’, the audio will be splited into hundreds of small parts and that’s also not the results we want. After several tests, I found that with the aggressiveness node set <strong>‘2’</strong>, the splitting performs best.</p>
 <h4 id="sample-rate"><a href="#sample-rate" class="headerlink" title="sample_rate"></a>sample_rate</h4><p>The API only accepts the sample_rate ‘16000’,’24000’,’32000’ and ‘48000’. The higher the sample rate, the better the audio quality. When converting the video to audio, you need to set the sample rate.</p>
@@ -420,7 +421,7 @@ python audiosplit.py &lt;aggressiveness&gt; &lt;path to wav file&gt;
             <p>原文作者：<a href="http://liuziyi219.github.io">Ziyi Liu</a>
             </p><p>原文链接：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/</a>
             </p><p>发表日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">June 8th 2019, 10:22:31 pm</a>
-            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">June 16th 2019, 4:46:59 am</a>
+            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">July 24th 2019, 12:09:45 am</a>
             </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
     
@@ -627,9 +628,31 @@ top:50vh;
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 6
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -642,6 +665,16 @@ top:50vh;
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/">Chinese Pipeline:Decreaing the sample rate doesn't work</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href="/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">Chinese Pipeline:Several updates about VAD and Xunfeisdk</a>
+        </li>
     
     
         <li class="archive-post-item">

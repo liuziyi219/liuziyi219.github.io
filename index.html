@@ -359,13 +359,66 @@ height:50vh;
     
     
     <article class="index-post">
+        <a class="abstract-title" href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/">
+            
+                <span>Chinese Pipeline:Decreaing the sample rate doesn&#39;t work</span>
+        </a>
+        <div class="abstract-content">
+            There are posts saying deepspeech modal only supports 8k sample format, so I accommodated all the voice sample rate to 8k. However, the performance was much worse that the previous one. Here is the code of accommodating the sample rate:
+for file in *.wav;do
+  #echo $file
+  c=${file}
+  #echo $c
+  ...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
+        <a class="abstract-title" href="/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">
+            
+                <span>Chinese Pipeline:Several updates about VAD and Xunfeisdk</span>
+        </a>
+        <div class="abstract-content">
+            Updates about WebRTCVad
+change of the usageinitial：python audiosplit.py &lt;aggressiveness&gt; &lt;dir to result&gt;now: python audiosplit.py &lt;padding duration&gt; &lt;path to wav file/directory&gt; &lt;path to result&gt; 
+
+two modesSupport splitting a single audio or all the audios in a certa...
+        </div>
+        <div class="abstract-post-meta">
+            <!-- date  -->
+            <div class="abstract-date">
+                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
+            </div>
+            <!-- tags  -->
+            
+        </div>
+    </article>
+    
+    
+    
+    
+    
+    
+    <article class="index-post">
         <a class="abstract-title" href="/2019/07/06/Chinese-Pipeline-How-to-use-XunfeiSDK/">
             
                 <span>Chinese Pipeline:How to use XunfeiSDK</span>
         </a>
         <div class="abstract-content">
-            This method has been denied, so I put the code in my another repository.
-Register and Download the SDK packageThe first thing is to sign up in Xunfei Open Platform. Then enter into the personal application, there you can create an application and add the service you need(you can choose SDK or Web...
+            Register and Download the SDK packageThe first thing is to sign up in Xunfei Open Platform. Then enter into the personal application, there you can create an application and add the service you need(you can choose SDK or WebAPI or other formats, in this case, I used Linux SDK). After that, downlo...
         </div>
         <div class="abstract-post-meta">
             <!-- date  -->
@@ -721,9 +774,31 @@ Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets f
     
     
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     <div class="total-and-search">
         <div class="total-archive">
-        Total : 6
+        Total : 8
         </div>
         <!-- search  -->
         
@@ -736,6 +811,16 @@ Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets f
     
     <div class="archive-year"> 2019 </div>
     <ul class="year-list">
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/24</span><a class="archive-post-title" href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/">Chinese Pipeline:Decreaing the sample rate doesn't work</a>
+        </li>
+    
+    
+        <li class="archive-post-item">
+            <span class="archive-post-date">07/23</span><a class="archive-post-title" href="/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">Chinese Pipeline:Several updates about VAD and Xunfeisdk</a>
+        </li>
     
     
         <li class="archive-post-item">
