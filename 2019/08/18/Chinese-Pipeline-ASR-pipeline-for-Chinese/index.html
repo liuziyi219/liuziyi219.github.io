@@ -22,7 +22,7 @@
     <meta name="description" content>
     <meta http-equiv="Cache-control" content="no-cache">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Ziyi&#39;s Blog</title>
+    <title>Chinese-Pipeline: ASR for Chinese Pipeline · Ziyi&#39;s Blog</title>
     <style type="text/css">
     @font-face {
         font-family: 'Oswald-Regular';
@@ -203,12 +203,23 @@
 </head>
 
     
+        <body class="post-body">
+    
     
 <header class="header">
 
     <div class="read-progress"></div>
     <div class="header-sidebar-menu">&#xe775;</div>
     <!-- post页的toggle banner  -->
+    
+    <div class="banner">
+            <div class="blog-title">
+                <a href="/">Ziyi&#39;s Blog</a>
+            </div>
+            <div class="post-title">
+                <a href="#" class="post-name">Chinese-Pipeline: ASR for Chinese Pipeline</a>
+            </div>
+    </div>
     
     <a class="home-link" href="/">Ziyi's Blog</a>
 </header>
@@ -220,24 +231,68 @@
 
 
 
+
+height:50vh;
 ">
     
     <!-- 主页  -->
+    
+    
+    <!-- 404页  -->
             
     <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/)"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
     <div class="site-intro-meta">
         <!-- 标题  -->
         <h1 class="intro-title">
             <!-- 主页  -->
+            
+            Chinese-Pipeline: ASR for Chinese Pipeline
+            <!-- 404 -->
             
         </h1>
         <!-- 副标题 -->
         <p class="intro-subtitle">
             <!-- 主页副标题  -->
             
+            
+            <!-- 404 -->
+            
         </p>
         <!-- 文章页meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                
+                    <div class="post-intro-read">
+                        <span>字数统计: <span class="post-count word-count">1k</span>阅读时长: <span class="post-count reading-time">6 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <span class="post-intro-calander iconfont-archer">&#xe676;</span>
+                    <span class="post-intro-time">2019/08/18</span>
+                    
+                    <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                        <span class="iconfont-archer">&#xe602;</span>
+                        <span id="busuanzi_value_page_pv"></span>
+                    </span>
+                    
+                    <span class="shareWrapper">
+                        <span class="iconfont-archer shareIcon">&#xe71d;</span>
+                        <span class="shareText">Share</span>
+                        <ul class="shareList">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
         
     </div>
 </div>
@@ -338,234 +393,111 @@
 </script>        
         <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
         <div class="container container-unloaded">
-            <main class="main index-page">
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/08/18/Chinese-Pipeline-ASR-pipeline-for-Chinese/">
-            
-                <span>Chinese-Pipeline: ASR for Chinese Pipeline</span>
-        </a>
-        <div class="abstract-content">
-            The project is mainly based on the open source project Deepspeech2 on PaddlePaddle released by Baidu. For the configuration, I strongly recommend you to use our singularity recipe to avoid protential problems.For the code, click here
-PrerequsitesFor the Red Hen Lab participants, all the configura...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/08/18</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
+            <main class="main post-page">
+    <article class="article-entry">
+        <p>The project is mainly based on the open source project Deepspeech2 on PaddlePaddle released by Baidu. For the configuration, I strongly recommend you to use our singularity recipe to avoid protential problems.<br>For the code, click <a href="https://github.com/liuziyi219/Chinese-pipeline" target="_blank" rel="noopener">here</a></p>
+<h2 id="Prerequsites"><a href="#Prerequsites" class="headerlink" title="Prerequsites"></a>Prerequsites</h2><p>For the Red Hen Lab participants, all the configuration has been set up on the server.</p>
+<p>Python==2.7<br>Singularity==2.5.1<br>CUDA==7.5</p>
+<h2 id="Data-Preparation"><a href="#Data-Preparation" class="headerlink" title="Data Preparation"></a>Data Preparation</h2><h3 id="Data-Description"><a href="#Data-Description" class="headerlink" title="Data Description"></a>Data Description</h3><p>What we use in this project is the Chinese video news data collected by Red Hed Lab, including Xinwenlianbo(新闻联播）,Xinwen1+1(新闻1+1）,etc. The video lengths vary from 20 minutes to 40 minutes.(some of them may include advertisements)</p>
+<h3 id="Data-Extraction"><a href="#Data-Extraction" class="headerlink" title="Data Extraction"></a>Data Extraction</h3><p>To extract the mp4 file from ./tv, you can use the order below<br>    <code>find . -name &#39;*_CN_*.mp4&#39; ! -iname &quot;*CGTN*&quot; -exec cp {} $PWDDIR #set this as your directory to save the videos</code></p>
+<h3 id="Format-Conversion"><a href="#Format-Conversion" class="headerlink" title="Format Conversion"></a>Format Conversion</h3><p>Firstl we need to convert the video to audio so that we could apply our pipeline. The tools we use here is FFmpeg.<br>The usage is:<br>    <code>ffmpeg -i file.mp4 -ac 1 -ar 32000 file.wav</code><br>ac is to set the channel, ‘-ac 1’ means set the channal as mono, or it will be stereo.<br>ar is to set the sample rate. 16000 and 32000 are both acceptable.</p>
+<h3 id="Split-the-audio"><a href="#Split-the-audio" class="headerlink" title="Split the audio"></a>Split the audio</h3><p>The tool we use here is WebRTCVad. A VAD classifies a piece of audio data as being voiced or unvoiced.<br>The details of the usage can be found in <a href="https://liuziyi219.github.io/2019/06/08/Chinese-Pipeline-Week1/">here</a></p>
+<h3 id="Prepare-the-Manifest"><a href="#Prepare-the-Manifest" class="headerlink" title="Prepare the Manifest"></a>Prepare the Manifest</h3><p>Manifest is a file that includes the information of data, including the audio path, duration. It is made up of small jsons which looks like:<br>   <code>{&quot;audio_filepath&quot;: &quot;data/split/2018-01/2018-01-31_0410_CN_HNTV1_午间新闻/2018-01-31_0410_CN_HNTV1_午间新闻001.wav&quot;, &quot;duration&quot;: 10.0, &quot;text&quot;: &quot;&quot;}</code><br>You can find the code manifest.py in the repository to create the manifest.</p>
+<h2 id="Hyper-parameters-Tuning"><a href="#Hyper-parameters-Tuning" class="headerlink" title="Hyper-parameters Tuning"></a>Hyper-parameters Tuning</h2><p>The hyper-parameters $\alpha$ (language model weight) and $\beta$ (word insertion weight) for the CTC beam search decoder often have a significant impact on the decoder’s performance. It would be better to re-tune them on the validation set when the acoustic model is renewed.</p>
+<p> tune.py performs a 2-D grid search over the hyper-parameter $\alpha$ and $\beta$. You must provide the range of $\alpha$ and $\beta$, as well as the number of their attempts.</p>
+<p>Tuning with GPU:  </p>
+<pre><code>CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 \
+python tune.py \
+--trainer_count 8 \
+--alpha_from 1.0 \
+--alpha_to 3.2 \
+--num_alphas 45 \
+--beta_from 0.1 \
+--beta_to 0.45 \
+--num_betas 8
+</code></pre><p>The grid search will print the WER (word error rate) or CER (character error rate) at each point in the hyper-parameters space, and draw the error surface optionally. What need to be noticed is that tuning might take lots of time, so it’s better not to set the range of alpha and beta wide.</p>
+<p>If you need to use testset from Red Hen Lab, here is the introduction of <a href="https://liuziyi219.github.io/2019/06/16/Chinese-Pipeline-week3/">test set</a><br>The testset is in /mnt/rds/redhen/gallina/Chinese_Pipeline/ziyiliu. The audios set is in /results, the annotated script is in /script. This testset only contains 150min of voice.</p>
+<h2 id="Infer"><a href="#Infer" class="headerlink" title="Infer"></a>Infer</h2><p>To get the inference of your data, we need the following files:</p>
+<h3 id="Infer-Manifest"><a href="#Infer-Manifest" class="headerlink" title="Infer Manifest"></a>Infer Manifest</h3><p>This is the file that generates from the Prepare the Manifest</p>
+<h3 id="Mean-amp-Stddev"><a href="#Mean-amp-Stddev" class="headerlink" title="Mean&amp;Stddev"></a>Mean&amp;Stddev</h3><p>This is the file that perform z-score normalization which includes audio features.</p>
+<pre><code>python code/compute_mean_std.py \
+--num_samples 2000 \
+--specgram_type linear \
+--manifest_paths {your manifest path here} \
+--output_path {your expected output path}
+</code></pre><p>you could check in the compute_mean.sh and compute_mean_std.py to see more details.</p>
+<h3 id="Vocabulary"><a href="#Vocabulary" class="headerlink" title="Vocabulary"></a>Vocabulary</h3><p>This is the file to count all the words(in Chinese we say characters, same thing) in your data. Note that all the generated words are from the vocabulary, so if you didn’t put the expected word here, it’s impossible to generate it. We just use the vocab.txt that Baidu provides. You could find the vocab.txt in code directory.</p>
+<h3 id="Speech-amp-Language-Model"><a href="#Speech-amp-Language-Model" class="headerlink" title="Speech &amp; Language Model"></a>Speech &amp; Language Model</h3><p>We used Aishell Model here, which is trained on the Aishell Dataset for 151h and for the language model, we used Mandarin LM Large here, which has no pruning and about 3.7 billion n-grams</p>
+<p>After all the preparation, you could fiil them in the right place in infer.sh. The code in the repository contains all the work, from extracting the video, to the inference, so you only need to run infer.sh.</p>
+<h2 id="Running-Code-at-CWRU-HPC"><a href="#Running-Code-at-CWRU-HPC" class="headerlink" title="Running Code at CWRU HPC"></a>Running Code at CWRU HPC</h2><p>###Get into the container</p>
+<pre><code>module load singularity/2.5.1
+module load cuda/7.5
+export SINGULARITY_BINDPATH=&quot;/mnt&quot;
+srun -p gpu -C gpup100 --mem=100gb --gres=gpu:2 --pty bash
+cd /mnt/rds/redhen/gallina/Singularity/Chinese_Pipeline/ziyiliu
+singularity shell -e --nv ziyiliu.simg
+</code></pre><h3 id="Run-the-infer-sh"><a href="#Run-the-infer-sh" class="headerlink" title="Run the infer.sh"></a>Run the infer.sh</h3><pre><code>cd code
+./infer.sh
+</code></pre><h3 id="Check-the-results"><a href="#Check-the-results" class="headerlink" title="Check the results"></a>Check the results</h3><pre><code>cd ../new_text
+</code></pre><h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><p>A cut of sample output file: </p>
+<pre><code>TOP|20190505183301|2019-05-05_1833_CN_CCTV13_新闻1+1
+COL|Communication Studies Archive, UCLA
+UID|e1bcc5b0-6f68-11e9-9863-eb97ad55d029
+DUR|00:26:54
+VID|720x576|1024x576
+SRC|Changsha, China
+TTL|News 1+1
+CMT|
+ASR_01|CMN
+LBT|2019-05-06 02:33:01 Asia/Shanghai
+ASR_01|2019-08-18 07:55|Source_Program=Baidu DeepSpeech2,infer.sh|Source_Person=Zhaoqing Xu,Shuwei Xu,Ziyi Liu|Codebook=Chinese Speech to Text
+20190505183301.000|20190505183311.950|ASR_01|一只很可爱的目的和他们的男孩安东江&gt;湖的美人模样还行不
+20190505183311.950|20190505183323.560|ASR_01|创业的感受将是你我还是我的国家我还&gt;没有
+20190505183323.560|20190505183324.430|ASR_01|没
+20190505183324.430|20190505183328.240|ASR_01|我曾好好地对本行业的公司
+20190505183328.240|20190505183333.100|ASR_01|比如原来的因为中国在黄金上的突破
+20190505183333.100|20190505183341.230|ASR_01|也还是要亲口说出而没有这个机会来了&gt;还是中国的年的太空
+20190505183341.230|20190505183343.930|ASR_01|同时很多的欧美国 
+</code></pre>
     </article>
+    <!-- license  -->
     
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/">
-            
-                <span>Chinese Pipeline:Decreaing the sample rate doesn&#39;t work</span>
-        </a>
-        <div class="abstract-content">
-            There are posts saying deepspeech modal only supports 8k sample format, so I accommodated all the voice sample rate to 8k. However, the performance was much worse that the previous one. Here is the code of accommodating the sample rate:
-for file in *.wav;do
-  #echo $file
-  c=${file}
-  #echo $c
-  ...
+        <div class="license-wrapper">
+            <p>原文作者：<a href="http://liuziyi219.github.io">Ziyi Liu</a>
+            </p><p>原文链接：<a href="http://liuziyi219.github.io/2019/08/18/Chinese-Pipeline-ASR-pipeline-for-Chinese/">http://liuziyi219.github.io/2019/08/18/Chinese-Pipeline-ASR-pipeline-for-Chinese/</a>
+            </p><p>发表日期：<a href="http://liuziyi219.github.io/2019/08/18/Chinese-Pipeline-ASR-pipeline-for-Chinese/">August 18th 2019, 7:23:47 pm</a>
+            </p><p>更新日期：<a href="http://liuziyi219.github.io/2019/08/18/Chinese-Pipeline-ASR-pipeline-for-Chinese/">August 18th 2019, 9:02:56 pm</a>
+            </p><p>版权声明：本文采用<a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
         </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/24</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/23/Chinese-Pipeline-Several-updates-about-VAD-and-Xunfeisdk/">
-            
-                <span>Chinese Pipeline:Several updates about VAD and Xunfeisdk</span>
-        </a>
-        <div class="abstract-content">
-            Updates about WebRTCVad
-change of the usageinitial：python audiosplit.py &lt;aggressiveness&gt; &lt;dir to result&gt;now: python audiosplit.py &lt;padding duration&gt; &lt;path to wav file/directory&gt; &lt;path to result&gt; 
-
-two modesSupport splitting a single audio or all the audios in a certa...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/07/06/Chinese-Pipeline-How-to-use-XunfeiSDK/">
-            
-                <span>Chinese Pipeline:How to use XunfeiSDK</span>
-        </a>
-        <div class="abstract-content">
-            Register and Download the SDK packageThe first thing is to sign up in Xunfei Open Platform. Then enter into the personal application, there you can create an application and add the service you need(you can choose SDK or WebAPI or other formats, in this case, I used Linux SDK). After that, downlo...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/07/06</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/23/Chinese-Pipeline-week4/">
-            
-                <span>Chinese-Pipeline:First experimental result and the comparation of 3 ASR APP</span>
-        </a>
-        <div class="abstract-content">
-            This week I tested the modal by using the testset. The current codes are separated for the convenience of testing, and after we obtain a satisfying result, I will reconstruct the code.
-The result and the WERHere are some results and their WER(word error rate) value
-This time the result is much be...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/23</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/16/Chinese-Pipeline-week3/">
-            
-                <span>Chinese Pipeline:An introduction to the Chinese news test set</span>
-        </a>
-        <div class="abstract-content">
-            I spent more than a week making this test set. This contains almost 150 minutes of voice. I made the correct text for each audio, so we can calculate exactly how well the performance of ASR Chinese Pipeline is.
-SourcesThe data is from 新闻联播(xinwenlianbo). We extract 5 episodes which are from 2019....
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/16</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/08/Chinese-Pipeline-Week2/">
-            
-                <span>Chinese Pipeline：Audios playing and audios editting</span>
-        </a>
-        <div class="abstract-content">
-            How to play audios in HPCProf Steen installed Sox for us. Sox is a powerful tool for audio editting. However, for some reasons I didn’t know, I couldn’t use Sox in my image, but I can use it on my local computer. Prof Steen advised me to use netcat. This method didn’t solve the problem directly, ...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/08/Chinese-Pipeline-Week1/">
-            
-                <span>Chinese Pipeline：usage of WebrtcVAD</span>
-        </a>
-        <div class="abstract-content">
-            WebrtcVADA VAD classifies a piece of audio data as being voiced or unvoiced.
-InstallationInstall the webrtcvad module
-pip install webrtcvad
-Preparing the audiosRedhen only have mp4 format videos. So, we need to transform the video to audios by ffmpeg. 
-FFmpeg is a powerful tool for format convert...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/08</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
-    
-    
-    
-    
-    
-    
-    <article class="index-post">
-        <a class="abstract-title" href="/2019/06/01/Chinese-Pipeline-Community-Bonding/">
-            
-                <span> Chinese Pipeline: access to HPC and usage of Singularity</span>
-        </a>
-        <div class="abstract-content">
-            It’s really exciting to work with Red Hen this summer! And I will record the whole work in my blog. 
-Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets for NLP, OCR, audio, and video pipelines. This work is mainly to improve the current ASR pipeline and build a NLP pip...
-        </div>
-        <div class="abstract-post-meta">
-            <!-- date  -->
-            <div class="abstract-date">
-                <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2019/06/01</span>
-            </div>
-            <!-- tags  -->
-            
-        </div>
-    </article>
     
     <!-- paginator  -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2019/07/24/Chinese-Pipeline-Decreaing-the-sample-rate-doesn-t-work/" title="Chinese Pipeline:Decreaing the sample rate doesn't work">
+                    <div class="prevTitle">Chinese Pipeline:Decreaing the sample rate doesn't work</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- 评论插件 -->
+    <!-- 来必力City版安装代码 -->
+
+<!-- City版安装代码已完成 -->
     
+    
+    <!-- partial('_partial/comment/changyan') -->
+    <!--PC版-->
+
+
+    
+    
+
+    <!-- 评论 -->
 </main>
             <!-- profile -->
             
@@ -643,6 +575,24 @@ Introduction to the projectRed Hen gathers Chinese broadcasts to make datasets f
 </footer>
     </div>
     <!-- toc -->
+    
+    <div class="toc-wrapper" style=
+    
+
+
+
+
+
+
+
+top:50vh;
+
+    >
+        <div class="toc-catalog">
+            <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+        </div>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Prerequsites"><span class="toc-number">1.</span> <span class="toc-text">Prerequsites</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Data-Preparation"><span class="toc-number">2.</span> <span class="toc-text">Data Preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Description"><span class="toc-number">2.1.</span> <span class="toc-text">Data Description</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Data-Extraction"><span class="toc-number">2.2.</span> <span class="toc-text">Data Extraction</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Format-Conversion"><span class="toc-number">2.3.</span> <span class="toc-text">Format Conversion</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Split-the-audio"><span class="toc-number">2.4.</span> <span class="toc-text">Split the audio</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Prepare-the-Manifest"><span class="toc-number">2.5.</span> <span class="toc-text">Prepare the Manifest</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Hyper-parameters-Tuning"><span class="toc-number">3.</span> <span class="toc-text">Hyper-parameters Tuning</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Infer"><span class="toc-number">4.</span> <span class="toc-text">Infer</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Infer-Manifest"><span class="toc-number">4.1.</span> <span class="toc-text">Infer Manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Mean-amp-Stddev"><span class="toc-number">4.2.</span> <span class="toc-text">Mean&amp;Stddev</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vocabulary"><span class="toc-number">4.3.</span> <span class="toc-text">Vocabulary</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Speech-amp-Language-Model"><span class="toc-number">4.4.</span> <span class="toc-text">Speech &amp; Language Model</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Running-Code-at-CWRU-HPC"><span class="toc-number">5.</span> <span class="toc-text">Running Code at CWRU HPC</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Run-the-infer-sh"><span class="toc-number">5.1.</span> <span class="toc-text">Run the infer.sh</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Check-the-results"><span class="toc-number">5.2.</span> <span class="toc-text">Check the results</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Results"><span class="toc-number">6.</span> <span class="toc-text">Results</span></a></li></ol>
+    </div>
     
     <div class="back-top iconfont-archer">&#xe639;</div>
     <div class="sidebar sidebar-hide">
@@ -872,6 +822,8 @@ jsonContent:
     
     </div>
     <!-- async load share.js -->
+    
+        <script src="/scripts/share.js" async></script>    
      
     </body>
 </html>
