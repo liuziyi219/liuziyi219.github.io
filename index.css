@@ -1,0 +1,32 @@
+img{
+    width:250px;
+
+}
+.container{
+    margin-top: 60px;
+}
+
+ul{
+    margin-right: 50px;
+    border-color: black;
+}
+.container-sm{
+    width:80%;
+}
+#caption{
+    margin-top: 15px;
+    font-size: 13px;
+    color: dimgrey;
+}
+#news{
+    font-size:large;
+}
+svg{
+    width:30px;
+    margin-top: -20px;
+   
+}
+#email{
+    font-size: 15px;
+    color:slategrey;
+}
