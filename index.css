@@ -10,8 +10,10 @@ ul{
     margin-right: 50px;
     border-color: black;
 }
-.container-sm{
-    width:80%;
+@media (min-width: 1200px) {
+    .container{
+        max-width: 3000px;
+    }
 }
 #caption{
     margin-top: 15px;
@@ -26,6 +28,7 @@ svg{
     margin-top: -20px;
    
 }
+
 #email{
     font-size: 15px;
     color:slategrey;
