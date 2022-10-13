@@ -28,6 +28,9 @@ svg{
     margin-top: -20px;
    
 }
+ul > li {
+    margin-left: 50px;
+}
 
 #email{
     font-size: 15px;
