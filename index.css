@@ -10,7 +10,7 @@ ul{
     margin-right: 50px;
     border-color: black;
 }
-@media (min-width: 1200px) {
+@media (min-width: 1000px) {
     .container{
         max-width: 3000px;
     }
