@@ -1,0 +1,38 @@
+/* Reset body margins and paddings */
+body, html {
+    margin: 0;
+    padding: 0;
+    min-height: 100%; /* Ensures full height */
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff; /* Background color of the page */
+}
+
+/* Container to center both sections */
+.container {
+    display: flex;
+    width: 900px; /* Set the overall width of the centered container */
+    background-color: #ffffff; /* Background color for the container */
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); Optional shadow for styling */
+    margin: 20px 0; /* Adds some vertical spacing */
+}
+
+/* Left Section Styling */
+.left-section {
+    width: 30%; /* Adjust this width as needed */
+    background-color: #ffffff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #e0e0e0;
+    overflow: auto; /* Allows scrolling if content overflows */
+    position: sticky;
+    top: 0; /* Keeps the left section in view if the page is scrolled */
+}
+
+/* Right Section Styling */
+.right-section {
+    width: 70%; /* Remaining width of the container */
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: auto; /* Makes the content scrollable */
+}
