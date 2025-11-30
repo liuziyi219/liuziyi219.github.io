@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ziyi Liu | Academic Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Academic homepage of Ziyi Liu, Ph.D. student at the University of Southern California."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      --bg: #f5f5fb;
+      --bg-elevated: #ffffff;
+      --accent: #4f46e5;
+      --accent-soft: rgba(79, 70, 229, 0.08);
+      --text-main: #111827;
+      --text-muted: #6b7280;
+      --border-subtle: #e5e7eb;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.08);
+      --max-width: 1080px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top left, #eef2ff 0, #f5f5fb 38%, #ffffff 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1.5rem 1.3rem 4rem;
+    }
+
+    /* Top nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(
+        to bottom,
+        rgba(245, 245, 251, 0.9),
+        rgba(245, 245, 251, 0.6),
+        transparent
+      );
+    }
+
+    .nav {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.75rem 1.3rem 0.6rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 30%;
+      background: conic-gradient(
+        from 180deg,
+        #4f46e5,
+        #0ea5e9,
+        #22c55e,
+        #f97316,
+        #4f46e5
+      );
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: 0 12px 25px rgba(79, 70, 229, 0.3);
+    }
+
+    .nav-title {
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.01em;
+    }
+
+    .nav-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.2rem;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      border-radius: 999px;
+      background: var(--accent);
+      transition: width 0.18s ease-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(79, 70, 229, 0.18);
+      background: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.08);
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .nav-cta span.icon {
+      font-size: 0.95rem;
+    }
+
+    /* Hero */
+    main {
+      margin-top: 1.5rem;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+      padding: 1.8rem 1.5rem;
+      border-radius: 26px;
+      background: radial-gradient(circle at top left, #eef2ff 0, #ffffff 48%, #f5f5fb 100%);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(2.1rem, 3vw, 2.6rem);
+      line-height: 1.1;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-subtitle {
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 1.1rem;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .badge {
+      padding: 0.25rem 0.7rem;
+      border-radius: var(--radius-pill);
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--accent-soft);
+      color: #312e81;
+      border: 1px solid rgba(79, 70, 229, 0.18);
+    }
+
+    .hero-text {
+      font-size: 0.95rem;
+      color: var(--text-main);
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.55rem 1.05rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      font-size: 0.85rem;
+      font-weight: 500;
+      cursor: pointer;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #ffffff;
+      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.35);
+    }
+
+    .btn-primary:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(79, 70, 229, 0.4);
+    }
+
+    .btn-ghost {
+      background: rgba(255, 255, 255, 0.9);
+      border-color: var(--border-subtle);
+      color: var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      text-decoration: none;
+      background: #f9fafb;
+    }
+
+    .hero-right {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .profile-wrapper {
+      width: 210px;
+      height: 210px;
+      border-radius: 30%;
+      padding: 5px;
+      background: conic-gradient(
+        from 215deg,
+        #4f46e5,
+        #0ea5e9,
+        #22c55e,
+        #f97316,
+        #ec4899,
+        #4f46e5
+      );
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.35);
+    }
+
+    .profile-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: inherit;
+      overflow: hidden;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
+    }
+
+    .hero-meta strong {
+      color: var(--text-main);
+    }
+
+    /* Sections */
+    section {
+      margin-top: 2.4rem;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .section-title span.icon {
+      font-size: 1.05rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-elevated);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148, 163, 184, 0.25);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
+      padding: 1.35rem 1.45rem;
+    }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 2.5fr) minmax(0, 2fr);
+      gap: 1.6rem;
+    }
+
+    .about-text p {
+      font-size: 0.93rem;
+      color: var(--text-main);
+      margin-bottom: 0.7rem;
+    }
+
+    .keyword-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .keyword {
+      font-size: 0.75rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: var(--radius-pill);
+      background: #f3f4ff;
+      color: #3730a3;
+    }
+
+    .about-meta {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+    }
+
+    .about-meta-row {
+      margin-bottom: 0.5rem;
+    }
+
+    .about-meta span.label {
+      font-weight: 500;
+      color: var(--text-main);
+      display: inline-block;
+      width: 80px;
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .pub-item {
+      padding: 0.9rem 0.9rem;
+      border-radius: 14px;
+      border: 1px solid rgba(209, 213, 219, 0.9);
+      background: linear-gradient(
+        to right,
+        #ffffff,
+        rgba(249, 250, 251, 0.9)
+      );
+    }
+
+    .pub-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .pub-authors {
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      margin-bottom: 0.1rem;
+    }
+
+    .pub-venue {
+      font-size: 0.8rem;
+      color: #4b5563;
+      margin-bottom: 0.35rem;
+    }
+
+    .pub-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.35rem;
+    }
+
+    .pub-tag {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      background: rgba(255, 255, 255, 0.9);
+    }
+
+    .pub-link {
+      font-size: 0.78rem;
+    }
+
+    /* News */
+    .news-timeline {
+      list-style: none;
+      border-left: 2px dashed rgba(148, 163, 184, 0.7);
+      padding-left: 1.2rem;
+      margin-left: 0.3rem;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .news-item {
+      position: relative;
+    }
+
+    .news-dot {
+      position: absolute;
+      left: -1.45rem;
+      top: 0.25rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(79, 70, 229, 0.15);
+    }
+
+    .news-date {
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #4b5563;
+      margin-bottom: 0.1rem;
+    }
+
+    .news-text {
+      font-size: 0.86rem;
+      color: var(--text-main);
+    }
+
+    /* CV */
+    .cv-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .cv-note {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 2.7rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(209, 213, 219, 0.8);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    /* Back to top */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.5rem;
+      right: 1.5rem;
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.7);
+      background: rgba(255, 255, 255, 0.95);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      cursor: pointer;
+      box-shadow: 0 12px 25px rgba(15, 23, 42, 0.2);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease-out, transform 0.16s ease-out;
+    }
+
+    .back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Mobile */
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav {
+        padding-inline: 1rem;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        padding: 1.4rem 1.1rem;
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .page {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header id="top">
+    <div class="nav">
+      <div class="nav-left">
+        <div class="brand-logo">ZL</div>
+        <div>
+          <div class="nav-title">Ziyi Liu</div>
+          <div class="nav-subtitle">Human–AI interaction & social reasoning</div>
+        </div>
+      </div>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#preprints">Preprints</a>
+        <a href="#news">News</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+        <button class="nav-cta" onclick="document.getElementById('cv').scrollIntoView({behavior:'smooth'})">
+          <span class="icon">📄</span>
+          <span>CV</span>
+        </button>
+      </nav>
+
+      <button class="nav-toggle" aria-label="Open navigation menu">☰</button>
+    </div>
+  </header>
+
+  <div class="page">
+    <main>
+      <!-- HERO -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div>
+          <h1 class="hero-title" id="hero-title">Ziyi Liu</h1>
+          <p class="hero-subtitle">
+            Ph.D. student, Computer Science · University of Southern California
+          </p>
+
+          <div class="hero-badges">
+            <div class="badge">Human–AI collaboration</div>
+            <div class="badge">Social & cultural reasoning</div>
+            <div class="badge">Trustworthy NLP</div>
+          </div>
+
+          <p class="hero-text">
+            I design, evaluate, and improve AI assistants that collaborate with humans in
+            complex social settings — from negotiation and conflict resolution to cultural
+            value understanding. My work combines large language models, human–AI interaction,
+            and rigorous evaluation benchmarks.
+          </p>
+
+          <div class="hero-actions">
+            <!-- TODO: replace with your real CV link -->
+            <a href="files/Ziyi_Liu_CV.pdf" class="btn-primary" target="_blank" rel="noopener">
+              <span>Download CV</span> <span>↗</span>
+            </a>
+
+            <!-- TODO: replace with your real email -->
+            <a href="mailto:youremail@usc.edu" class="btn-ghost">
+              ✉️ Email
+            </a>
+
+            <!-- TODO: replace with your scholar link -->
+            <a href="https://scholar.google.com" class="btn-ghost" target="_blank" rel="noopener">
+              🧠 Google Scholar
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="profile-wrapper" aria-hidden="true">
+            <div class="profile-inner">
+              <!-- TODO: replace with your real profile image path -->
+              <img src="images/profile.jpg" alt="Portrait of Ziyi Liu" />
+            </div>
+          </div>
+          <div class="hero-meta">
+            <div><strong>LIME Lab</strong>, USC</div>
+            <div>Advised by Prof. Jieyu Zhao</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">👋</span> About
+          </h2>
+          <p class="section-subtitle">
+            Short academic bio & research areas
+          </p>
+        </div>
+
+        <div class="card about-grid">
+          <div class="about-text">
+            <p>
+              I am a Ph.D. student in Computer Science at the University of Southern
+              California, advised by <a href="https://sites.google.com/site/jieyuzhao/" target="_blank" rel="noopener">Prof. Jieyu Zhao</a>.
+              My research focuses on making large language models more socially intelligent,
+              reliable, and helpful in multi-party interactions.
+            </p>
+            <p>
+              I build <strong>benchmarks, testbeds, and evaluation methods</strong> for AI agents
+              in scenarios such as group decision making, negotiation mediation, and cultural
+              value understanding. I also study how LLMs express preferences, manage conflict,
+              and adapt to human values in natural conversations.
+            </p>
+
+            <p>
+              Broadly, I’m interested in:
+            </p>
+            <div class="keyword-list">
+              <span class="keyword">Human–AI interaction</span>
+              <span class="keyword">Social & cultural reasoning</span>
+              <span class="keyword">Trustworthy NLP</span>
+              <span class="keyword">Evaluation & benchmarks</span>
+              <span class="keyword">Multi-agent systems</span>
+            </div>
+          </div>
+
+          <div>
+            <div class="about-meta">
+              <div class="about-meta-row">
+                <span class="label">Office:</span> RTH, USC (Los Angeles, CA)
+              </div>
+              <div class="about-meta-row">
+                <span class="label">Email:</span>
+                <!-- TODO: replace with your real email -->
+                <a href="mailto:youremail@usc.edu">youremail@usc.edu</a>
+              </div>
+              <div class="about-meta-row">
+                <span class="label">Links:</span>
+                <!-- TODO: replace URLs -->
+                <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a> ·
+                <a href="https://github.com" target="_blank" rel="noopener">GitHub</a> ·
+                <a href="https://www.linkedin.com" target="_blank" rel="noopener">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PUBLICATIONS -->
+      <section id="publications">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">📚</span> Selected Publications
+          </h2>
+          <p class="section-subtitle">
+            Peer-reviewed papers
+          </p>
+        </div>
+
+        <div class="card">
+          <ul class="pub-list">
+            <!-- Example entry 1 -->
+            <li class="pub-item">
+              <div class="pub-title">
+                CQ-Bench: Evaluating Cultural Value Understanding in Multi-Turn Conversations
+              </div>
+              <div class="pub-authors">
+                <strong>Ziyi Liu</strong>, et al.
+              </div>
+              <div class="pub-venue">
+                EACL 2026 (to appear)
+              </div>
+              <div class="pub-tags">
+                <span class="pub-tag">Benchmark</span>
+                <span class="pub-tag">Cultural values</span>
+                <span class="pub-tag">LLM evaluation</span>
+                <a class="pub-link" href="#" target="_blank">Paper</a>
+                <span>·</span>
+                <a class="pub-link" href="#" target="_blank">Code</a>
+              </div>
+            </li>
+
+            <!-- Example entry 2 -->
+            <li class="pub-item">
+              <div class="pub-title">
+                Self-Contradictory Reasoning Evaluation and Detection
+              </div>
+              <div class="pub-authors">
+                <strong>Ziyi Liu</strong>, et al.
+              </div>
+              <div class="pub-venue">
+                Findings of EMNLP 2024
+              </div>
+              <div class="pub-tags">
+                <span class="pub-tag">Reasoning</span>
+                <span class="pub-tag">Consistency</span>
+                <a class="pub-link" href="#" target="_blank">Paper</a>
+                <span>·</span>
+                <a class="pub-link" href="#" target="_blank">Code</a>
+              </div>
+            </li>
+
+            <!-- Example entry 3 -->
+            <li class="pub-item">
+              <div class="pub-title">
+                ProMediate: Evaluating AI Mediators in Multi-Issue Human-Style Negotiations
+              </div>
+              <div class="pub-authors">
+                <strong>Ziyi Liu</strong>, et al.
+              </div>
+              <div class="pub-venue">
+                Under review
+              </div>
+              <div class="pub-tags">
+                <span class="pub-tag">Human–AI collaboration</span>
+                <span class="pub-tag">Negotiation</span>
+                <a class="pub-link" href="#" target="_blank">Paper</a>
+                <span>·</span>
+                <a class="pub-link" href="#" target="_blank">Code</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PREPRINTS -->
+      <section id="preprints">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">🧪</span> Preprints
+          </h2>
+          <p class="section-subtitle">
+            Ongoing projects and arXiv preprints
+          </p>
+        </div>
+
+        <div class="card">
+          <ul class="pub-list">
+            <!-- Example preprint -->
+            <li class="pub-item">
+              <div class="pub-title">
+                InterIntent: Evaluating Social Intelligence of LLM Agents in Social Deduction Games
+              </div>
+              <div class="pub-authors">
+                <strong>Ziyi Liu</strong>, et al.
+              </div>
+              <div class="pub-venue">
+                arXiv preprint, 2025
+              </div>
+              <div class="pub-tags">
+                <span class="pub-tag">Social reasoning</span>
+                <span class="pub-tag">Multi-agent</span>
+                <a class="pub-link" href="#" target="_blank">arXiv</a>
+                <span>·</span>
+                <a class="pub-link" href="#" target="_blank">Project page</a>
+              </div>
+            </li>
+
+            <!-- Add more preprints here -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- NEWS -->
+      <section id="news">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">📰</span> News
+          </h2>
+          <p class="section-subtitle">
+            Recent updates
+          </p>
+        </div>
+
+        <div class="card">
+          <ul class="news-timeline">
+            <!-- Example news item -->
+            <li class="news-item">
+              <span class="news-dot"></span>
+              <div class="news-date">Nov 2025</div>
+              <div class="news-text">
+                Our paper on <em>CQ-Bench</em> was accepted to EACL 2026!
+              </div>
+            </li>
+            <li class="news-item">
+              <span class="news-dot"></span>
+              <div class="news-date">Jul 2025</div>
+              <div class="news-text">
+                Gave an invited talk on evaluating social intelligence in LLMs at [Institution/Workshop].
+              </div>
+            </li>
+            <li class="news-item">
+              <span class="news-dot"></span>
+              <div class="news-date">Dec 2024</div>
+              <div class="news-text">
+                <em>Self-Contradictory Reasoning Evaluation and Detection</em> appeared in Findings of EMNLP 2024.
+              </div>
+            </li>
+            <!-- Add more news items as needed -->
+          </ul>
+        </div>
+      </section>
+
+      <!-- CV -->
+      <section id="cv">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">📄</span> Curriculum Vitae
+          </h2>
+          <p class="section-subtitle">
+            Full CV and one-page research overview
+          </p>
+        </div>
+
+        <div class="card">
+          <div class="cv-actions">
+            <!-- TODO: replace with your actual CV link(s) -->
+            <a href="files/Ziyi_Liu_CV.pdf" class="btn-primary" target="_blank" rel="noopener">
+              Full CV (PDF)
+            </a>
+            <a href="files/Ziyi_Liu_Research_Statement.pdf" class="btn-ghost" target="_blank" rel="noopener">
+              Research statement
+            </a>
+            <p class="cv-note">
+              Updated: Nov 2025. For the latest version, please email me.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="section-header">
+          <h2 class="section-title">
+            <span class="icon">✉️</span> Contact
+          </h2>
+          <p class="section-subtitle">
+            Email is the best way to reach me
+          </p>
+        </div>
+
+        <div class="card">
+          <p style="font-size: 0.93rem; margin-bottom: 0.7rem;">
+            I am always happy to chat about human–AI interaction, social reasoning, and
+            trustworthy NLP. If you’re a student interested in research or a collaborator
+            working on related topics, feel free to reach out.
+          </p>
+          <p style="font-size: 0.9rem;">
+            📧
+            <!-- TODO: replace with your real email -->
+            <a href="mailto:youremail@usc.edu">youremail@usc.edu</a>
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        © <span id="year"></span> Ziyi Liu · Last updated Nov 2025
+      </div>
+      <div class="footer-links">
+        <!-- TODO: replace URLs -->
+        <a href="https://scholar.google.com" target="_blank" rel="noopener">Google Scholar</a>
+        <a href="https://github.com" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.semanticscholar.org" target="_blank" rel="noopener">Semantic Scholar</a>
+      </div>
+    </footer>
+  </div>
+
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
+  <script>
+    // Update year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Back to top button behavior
+    const backToTop = document.getElementById("backToTop");
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 220) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Simple mobile nav: scroll to sections when using the toggle (optional)
+    const navToggle = document.querySelector(".nav-toggle");
+    navToggle?.addEventListener("click", () => {
+      const links = document.querySelector(".nav-links");
+      if (!links) return;
+      const isVisible = window.getComputedStyle(links).display !== "none";
+      links.style.display = isVisible ? "none" : "flex";
+      links.style.flexDirection = "column";
+      links.style.background = "rgba(248, 250, 252, 0.98)";
+      links.style.position = "absolute";
+      links.style.top = "52px";
+      links.style.right = "1.3rem";
+      links.style.padding = "0.7rem 0.9rem";
+      links.style.borderRadius = "14px";
+      links.style.boxShadow = "0 15px 35px rgba(15,23,42,0.25)";
+      links.style.zIndex = "60";
+    });
+  </script>
+</body>
+</html>
