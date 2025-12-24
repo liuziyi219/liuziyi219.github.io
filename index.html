@@ -1,126 +1,629 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Ziyi Liu</title>
-        <link rel="stylesheet" href="index.css">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    </head>
-    <body>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.min.js" integrity="sha384-IDwe1+LCz02ROU9k972gdyvl+AESN10+x7tBKgc9I5HFtuNz0wWnPclzo6p9vxnk" crossorigin="anonymous"></script>
-        
-        <!-- <div class="navbar  fixed-top">
-            <div class="container-sm text-center">
-            
-              <div class="d-flex flex-row-reverse bd-highlight" id="navbarNav"> 
-                <ul class="navbar-nav  ">
-                  <
-                </ul>
-             
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Personal Homepage</title>
+    <style>
+      :root {
+        --bg: #ffffff;
+        --fg: #0f172a;
+        --muted: #475569;
+        --border: rgba(15, 23, 42, 0.12);
+        --card: rgba(15, 23, 42, 0.03);
+        --link: #0ea5e9;
+        --link-hover: #0284c7;
+        --shadow: 0 10px 30px rgba(2, 8, 23, 0.08);
+        --radius: 14px;
+        --maxw: 980px;
+      }
+
+      [data-theme="dark"] {
+        --bg: #0b1220;
+        --fg: #e5e7eb;
+        --muted: #a1a1aa;
+        --border: rgba(229, 231, 235, 0.16);
+        --card: rgba(229, 231, 235, 0.06);
+        --link: #7dd3fc;
+        --link-hover: #38bdf8;
+        --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      }
+
+      * { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--fg);
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+          "Apple Color Emoji", "Segoe UI Emoji";
+        line-height: 1.55;
+      }
+
+      a { color: var(--link); text-decoration: none; }
+      a:hover { color: var(--link-hover); text-decoration: underline; }
+
+      .page {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 0 clamp(16px, 5vw, 1in);
+      }
+
+      /* Top nav (like thomasgultzow.com: simple, anchored sections, theme toggle) */
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: saturate(150%) blur(10px);
+        background: color-mix(in srgb, var(--bg) 88%, transparent);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav {
+        max-width: var(--maxw);
+        margin: 0 auto;
+        padding: 10px clamp(16px, 5vw, 1in);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 14px;
+      }
+      .nav-left {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .brand {
+        font-weight: 650;
+        letter-spacing: 0.2px;
+        color: var(--fg);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+      .nav-links a {
+        color: var(--muted);
+        font-weight: 520;
+        font-size: 0.95rem;
+      }
+      .nav-links a:hover { color: var(--fg); text-decoration: none; }
+
+      .theme {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .theme select {
+        appearance: none;
+        background: var(--card);
+        color: var(--fg);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-weight: 550;
+        cursor: pointer;
+      }
+
+      /* Hero */
+      .hero { padding: 34px 0 10px; }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 150px 1fr;
+        gap: 22px;
+        align-items: center;
+      }
+      @media (max-width: 640px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .avatar { width: 120px; height: 120px; }
+      }
+
+      .avatar {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: linear-gradient(180deg, color-mix(in srgb, var(--card) 75%, transparent), transparent);
+        display: grid;
+        place-items: center;
+        overflow: hidden;
+      }
+      .avatar img { width: 100%; height: 100%; object-fit: cover; }
+
+      h1 {
+        margin: 0 0 6px;
+        font-size: clamp(1.9rem, 3.2vw, 2.4rem);
+        letter-spacing: -0.3px;
+      }
+      .subtitle {
+        margin: 0;
+        color: var(--muted);
+        font-weight: 600;
+        font-size: 1.05rem;
+      }
+      .affil { margin-top: 6px; color: var(--muted); }
+
+      .social {
+        margin-top: 12px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 12px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: var(--card);
+        color: var(--fg);
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+      .pill:hover { text-decoration: none; filter: brightness(1.02); }
+
+      /* Sections */
+
+      /* News (editorial list style like reference screenshot) */
+      .news-list {
+        display: flex;
+        flex-direction: column;
+        gap: 26px;
+        margin-top: 12px;
+      }
+      .news-item {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        column-gap: 28px;
+        padding: 0;
+        border: none;
+        background: transparent;
+      }
+      .news-date {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+      .news-date span {
+        display: block;
+      }
+      .news-content {
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--fg);
+      }
+      .news-content em {
+        font-style: italic;
+      }
+      .news-content a {
+        color: var(--link);
+        font-weight: 500;
+      }
+      .news-content a:hover {
+        text-decoration: underline;
+      }
+
+      section { padding: 22px 0; }
+      section + section { border-top: 1px solid var(--border); }
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1.2rem;
+        letter-spacing: -0.2px;
+      }
+
+      .prose { color: var(--fg); }
+      .prose p { margin: 0 0 12px; }
+      .muted { color: var(--muted); }
+
+      /* Emphasis / highlight */
+      .highlight {
+        font-weight: 700; /* bold */
+      }
+      .strong { font-weight: 700; }
+
+            /* Publications (featured style like thomasgultzow.com) */
+      .pub-item {
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        background: #fff;
+        padding: 22px 24px;
+        box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+      }
+      [data-theme="dark"] .pub-item {
+        background: color-mix(in srgb, var(--bg) 92%, #000);
+      }
+      .pub-authors {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 0 0 6px;
+      }
+      .pub-venue {
+        color: var(--muted);
+        font-size: 0.95rem;
+        margin: 0 0 16px;
+      }
+      .pub-title {
+        font-weight: 800;
+        font-size: 1.6rem;
+        letter-spacing: -0.3px;
+        margin: 0 0 12px;
+      }
+      .pub-abstract {
+        color: var(--fg);
+        font-size: 1.02rem;
+        line-height: 1.6;
+        margin: 0 0 18px;
+      }
+      .pub-actions a {
+        display: inline-block;
+        padding: 6px 14px;
+        border: 2px solid #2563eb;
+        border-radius: 8px;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: #2563eb;
+        text-decoration: none;
+      }
+      .pub-actions a:hover {
+        background: #2563eb;
+        color: #fff;
+      }
+            .tagrow {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      /* Base “chip” style (used for publication links + topic tags) */
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        color: var(--muted);
+        background: color-mix(in srgb, var(--card) 70%, transparent);
+        font-weight: 650;
+        font-size: 0.86rem;
+        line-height: 1;
+        transition: transform 140ms ease, box-shadow 140ms ease, border-color 140ms ease, color 140ms ease;
+      }
+      a.tag:hover {
+        text-decoration: none;
+        color: var(--fg);
+        border-color: color-mix(in srgb, var(--border) 60%, var(--fg));
+        transform: translateY(-1px);
+        box-shadow: 0 8px 18px rgba(2, 8, 23, 0.10);
+      }
+
+      /* Nicer “interest chips” (bigger, cleaner, with a small dot accent) */
+      .tagrow--interest {
+        margin-top: 14px;
+        gap: 10px;
+      }
+      .tagrow--interest .tag {
+        padding: 8px 12px;
+        font-size: 0.92rem;
+        color: var(--fg);
+        background:
+          linear-gradient(
+            180deg,
+            color-mix(in srgb, var(--link) 10%, var(--card)),
+            color-mix(in srgb, var(--bg) 86%, var(--card))
+          );
+        border-color: color-mix(in srgb, var(--link) 20%, var(--border));
+      }
+      .tagrow--interest .tag::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: color-mix(in srgb, var(--link) 70%, var(--fg));
+        box-shadow: 0 0 0 3px color-mix(in srgb, var(--link) 12%, transparent);
+      }
+      .tagrow--interest .tag:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 10px 22px rgba(2, 8, 23, 0.12);
+        border-color: color-mix(in srgb, var(--link) 40%, var(--border));
+      }
+
+      /* Anchor offset for sticky header */
+      :target { scroll-margin-top: 84px; }
+
+      /* Tiny footer */
+      footer {
+        padding: 26px 0 40px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="nav">
+        <div class="nav-left">
+          <a class="brand" href="#top">Ziyi Liu</a>
+          <nav class="nav-links" aria-label="Primary">
+            <a href="#about">About</a>
+            <a href="#teaching">News</a>
+            <a href="#publications">Publications</a>
+            <!-- <a href="#topics">Research Topics</a> -->
+          </nav>
+        </div>
+        <div class="theme" aria-label="Theme">
+          <select id="themeSelect" title="Theme">
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+            <option value="auto">Automatic</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <main id="top" class="page">
+      <div class="hero">
+        <div class="hero-grid">
+          <div class="avatar" aria-hidden="true">
+            <!-- Replace with your headshot path -->
+            <img src="portrait.jpg" alt="Portrait" />
+          </div>
+          <div>
+            <h1>Ziyi Liu</h1>
+            <p class="subtitle"> PhD Student </p>
+            <div class="affil">
+              <span class="muted">University of Southern California</span>
             </div>
-        </div> -->
-        
-        <div class="navbar navbar-expand-sm bg-light" id="navbarScroll">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-               <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="#research">Research</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#project">Projects</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#publication">Publications</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="Liu__Ziyi__Resume_10_16.pdf" target="_blank">CV</a>
-                  </li>
-              
-            </ul>
-          </div>
-          </div>
-        <div class="container ">
-         
-            <div class="row">
-                <div class="col-5 text-center">
-                    <img class="img-thumbnail" src="selfie1.JPG">
-                    
-                    <p id="caption"> Taken in Seattle(Credit to Tiffany&#128522;)</p>
-                    <a href ="https://twitter.com/liuziyi93">[Twitter]</a>
+            <div class="social">
+             <a href ="https://twitter.com/liuziyi93">[Twitter]</a>
                     <a href ="https://www.linkedin.com/in/ziyi-liu-803/">[Linkedin]</a>
                     <a href = "https://github.com/liuziyi219">[Github]</a>
                     <a href = "https://scholar.google.com/citations?user=HGO-C1gAAAAJ&hl=en">[Google Scholar]</a>
                    
-                    <br>
-                   
-                    <p id="email">Email: zliu2803[at]usc[dot]edu</p>
-                </div>
-               
-                <div class="col-7">
-                  <h1>Ziyi Liu</h1>
-                  Hi there👋 , I am a third-year PhD student at the University of Southern California, advised by Prof. Jieyu Zhao in the <a href="https://jyzhao.net/lab.html">LIME Lab</a>. Previously, I earned my master's degree at USC and worked as a Research Assistant in USC ISI's Ink Lab for two years under the guidance of Professor Xiang Ren. My research primarily focuses on social reasoning and trustworthy NLP, particularly evaluating LLM behavior and aligning LLM values with human values in human-LLM interaction. 
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section id="about">
+        <h2>About me</h2>
+        <div class="prose">
+          <p>
+           Hi there👋 , I am a second-year PhD student at the University of Southern California, honorly advised by Prof. Jieyu Zhao in the <a href="https://jyzhao.net/lab.html">LIME Lab</a>. Previously, I earned my master's degree at USC and worked as a Research Assistant in USC ISI's Ink Lab for two years under the guidance of Professor Xiang Ren. My research primarily focuses on social reasoning and trustworthy NLP, particularly evaluating LLM behavior and aligning LLM values with human values in human-LLM interaction. 
                   
                   My work is driven by two key questions: 
                   <ul>
                   <li> How can we make interactions between models and humans more seamless? </li>
                   <li> How can we ensure the faithfulness of LLMs and avoid hallucinations during interactions?</li>
                   </ul>
-                  <!-- <p>Hi there👋 , I am a second-year PhD student at the University of Southern California advised by Prof. Jieyu Zhao in <a href="https://jyzhao.net/lab.html">LIME Lab</a>. Previously, I obtained my master degree in USC and I was also a Research Assistant in USC ISI - Ink Lab for two years, advised by Professor Xiang Ren. My current research is focused on explainable AI and human-in-the-loop in NLP models. More specifically, we look into how machine explanation benefits models and users, and how human intervention improves model performance.  I am also very interested in grounding natural language, and took the class of it. I think this is a research field that is full of challenges but a very promising direction for NLP. </p>
-                   <p>My research interests mainly include:</p>  
-                   <ul>
-                       <li>how machine learning can benefit human and augment human intelligence; how human-in-the-loop techniques better intervene into a model</li>
-                       <li>how should we explain the model, and how can we align the model's reasoning process with human's thinking process</li>
-                       <li>Social bias mitigation in language model, and how to let model have social intelligence</li>
-                     <ul>-->
-
-                  <p style="font-weight: bold;"> I am open to collaboration! If you are a master or undergraduate student in USC, please fill in this <a href="https://docs.google.com/forms/d/e/1FAIpQLSccWLXFT5mGDY5n-RG60gxO30u0gjjtsIJMvQX-axq_oIztTA/viewform">form</a> first before
+          </p>
+          <p class="muted">
+           I am open to collaboration! If you are a master or undergraduate student in USC, please fill in this <a href="https://docs.google.com/forms/d/e/1FAIpQLSccWLXFT5mGDY5n-RG60gxO30u0gjjtsIJMvQX-axq_oIztTA/viewform">form</a> first before
                   contacting me. If you are a PhD student from another university, feel free to drop me an email! </p>
 
-                  <!-- <p style="font-weight: bold;"> I am looking for 2026 Summer Research internship! </p>
-   -->
-                    
-                </div>
-                <hr>
-                <div class ='row'>
-                    <h1>News</h1>
-                    <p id="news">Mar: I will join Microsoft this summer for internship. I will work on social intelligence and agent! </p>
-                   
-                    <p id="news">Sept 19th 2024: Our paper <a href="https://arxiv.org/abs/2406.12203">'InterIntent: Invesigating Social Intelligence of LLMs via Intention Understanding in an Interactive Game Environment'</a> got ACCEPTED at EMNLP 2024! See you guys in Miami &#129395; </p>
-                    <p id="news">Sept 19th 2024: Our paper <a href="https://arxiv.org/abs/2311.09603">'Self-Contradictory Reasoning Evaluation and Detection'</a> got ACCEPTED as Findings in EMNLP 2024!  &#129395; </p>
-              
-                    
-                    
-                    <p id="news">May 1st 2023: Our paper 'Are Machine Rationales (Not) Useful to Humans? Measuring and Improving Human Utility of Free-Text Rationales' got ACCEPTED at ACL 2023! &#129395; </p>
-                </div>
-                <hr>
+          </p>
+          <p class="highlight">
+            <strong>I am looking for an internship for Summer 2026!</strong> Would appreciate any help!
+          </p>
+        </div>
 
+       
+      </section>
 
-
-                
-                <div id='publication' class="row" width = "1000px">
-                    <h1>Publications</h1>
-                    <h3>2024</h3>
-                    <p style="font-weight:bold;font-size:20px;">InterIntent: Invesigating Social Intelligence of LLMs via Intention Understanding in an Interactive Game Environment (EMNLP 2024)</p>
-                    <p>Ziyi Liu*, Ahbishek Anand*, Pei Zhou, Jen-tse Huang, Jieyu Zhao (* means same contribution)</p>
-                    
-                    <p style="font-weight:bold;font-size:20px;">Self-Contradictory Reasoning Evaluation and Detection (Findings of EMNLP 2024)</p>
-                    <p>Ziyi Liu, Soumya Sanyal, Isabelle Lee, Yongkang Du, Rahul Gupta, Yang Liu, Jieyu Zhao</p>
-                    
-                    <h3>2023</h3>
-                    <p style="font-weight:bold;font-size:20px;">Are Machine Rationales (Not) Useful to Humans? Measuring and Improving Human Utility of Free-Text Rationales (ACL 2023)</p>
-                    <p>Brihi Joshi*, Ziyi Liu*, Sahana Ramnath, Aaron Chan, Zhewei Tong, Shaoliang Nie, Qifan Wang, Yejin Choi, Xiang Ren (* means same contribution)</p>
-                    
-                    <h3>2022</h3>
-                    <p style="font-weight:bold;font-size:20px;">ER-Test: Evaluating Explanation Regularization Methods for NLP Models (Findings of EMNLP 2022)</p>
-                    <p>Brihi Joshi*, Aaron Z. Chan*, Ziyi Liu*, Shaoliang Nie, Maziar Sanjabi, Hamed Firooz and Xiang Ren(* means same contribution)</p>
-                    <h3>2021</h3>
-                    <p style="font-weight:bold;font-size:20px">A deep-learning framework for multi-level peptide–protein interaction prediction (Nature communications)</p>
-                    <p>Yipin Lei, Shuya Li, Ziyi Liu, Fangping Wan, Tingzhong Tian, Shao Li, Dan Zhao, Jianyang Zeng</p>
-
-
-                </div>
-              </div>
+      <section id="news">
+        <h2>News</h2>
+        <div class="news-list">
+<div class="news-item">
+            <div class="news-date">
+              <span>Oct</span>
+              <span>2025</span>
+            </div>
+            <div class="news-content">
+              Our paper (work done during internship in Microsoft) <em>ProMediate: A Socio-cognitive framework for evaluating proactive agents in multi-party negotiation</em>
+              was released on arxiv! 🎉
+            </div>
           </div>
-        
-    </body>
+          <div class="news-item">
+            <div class="news-date">
+              <span>Mar</span>
+              <span>2025</span>
+            </div>
+            <div class="news-content">
+              I will join <strong>Microsoft</strong> this summer as an intern, working on
+              social intelligence and agent research.
+            </div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-date">
+              <span>Sept</span>
+              <span>2024</span>
+            </div>
+            <div class="news-content">
+              Our paper <em>InterIntent: Investigating Social Intelligence of LLMs via Intention Understanding in an Interactive Game Environment</em>
+              was accepted at <strong>EMNLP 2024</strong>. See you in Miami! 🎉
+            </div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-date">
+              <span>Sept</span>
+              <span>2024</span>
+            </div>
+            <div class="news-content">
+              Our paper <em>Self‑Contradictory Reasoning Evaluation and Detection</em>
+              was accepted as <strong>Findings of EMNLP 2024</strong>. 🎉
+            </div>
+          </div>
+
+          <div class="news-item">
+            <div class="news-date">
+              <span>May</span>
+              <span>2023</span>
+            </div>
+            <div class="news-content">
+              Our paper <em>Are Machine Rationales (Not) Useful to Humans?</em> was accepted at
+              <strong>ACL 2023</strong>.
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="publications">
+        <h2>Featured Publications and Preprints</h2>
+        <article class="pub-item">
+  <p class="pub-authors">
+    Ziyi Liu, Bahar Sarrafzadeh, Pei Zhou, Longqi Yang, Jieyu Zhao, Ashish Sharma
+  </p>
+  <p class="pub-venue">Oct 29, 2025 · arXiv Preprint</p>
+
+  <h3 class="pub-title">ProMediate: A Socio-cognitive framework for evaluating proactive agents in multi-party negotiation</h3>
+
+  <p class="pub-abstract">
+    ProMediate is the first framework designed to evaluate proactive AI mediator agents in
+    complex, multi-topic, multi-party negotiation. It consists of a simulation testbed and
+    a socio-cognitive evaluation framework with new metrics to measure consensus change,
+    intervention latency, and mediator effectiveness. Results show a socially intelligent
+    mediator increases consensus change and responds faster than a generic baseline.
+  </p>
+
+  <div class="pub-actions">
+    <a href="https://arxiv.org/abs/2510.25224" target="_blank">arXiv</a>
+  </div>
+          <br>
+</article>
+        <article class="pub-item">
+  <p class="pub-authors">
+    Ziyi Liu, Priyanka Dey, Jen-tse Huang, Zhenyu Zhao, Bowen Jiang, Rahul Gupta, Yang Liu, Yao Du, Jieyu Zhao
+  </p>
+  <p class="pub-venue">Apr, 2025 · arXiv Preprint</p>
+
+    <h3 class="pub-title">Can LLMs Grasp Implicit Cultural Values? Benchmarking LLMs' Cultural Intelligence with CQ-Bench</h3>
+  <p class="pub-abstract">
+    CQBench introduces a benchmark for evaluating large language models’ cultural intelligence by testing their ability to infer implicit cultural values from natural, multi-character conversations. Built from World Values Survey and GlobalOpinions data, CQBench includes three tasks—attitude detection, value selection, and value extraction—and is generated via a rigorous validation pipeline achieving 94.5% human–model agreement. Results show that while frontier models approach human performance in value selection, they still struggle with nuanced attitude inference, and that targeted fine-tuning on small, culturally rich datasets can yield substantial gains.
+  </p>
+
+  <div class="pub-actions">
+    <a href="https://arxiv.org/abs/2504.01127" target="_blank">arXiv</a>
+    <a href="https://github.com/limenlp/CQ-Bench" target="_blank">code</a>
+  </div>
+</article>
+        <article class="pub-item">
+  <p class="pub-authors">
+    Jingyuan Huang, Jen-tse Huang, Ziyi Liu, Xiaoyuan Liu, Wenxuan Wang, Jieyu Zhao
+  </p>
+  <p class="pub-venue">July, 2025 - In the proceedings of ACL 2025 </p>
+
+  <h3 class="pub-title">AI Sees Your Location, But With A Bias Toward The Wealthy World</h3>
+
+  <p class="pub-abstract">
+    Visual-Language Models (VLMs) demonstrate geographic recognition capabilities from images but exhibit
+    significant regional biases: they perform better on developed, densely populated areas than on less
+    developed, sparsely populated regions. This benchmark study also highlights privacy concerns arising from
+    strong geographic inference performance.
+  </p>
+
+  <div class="pub-actions">
+    <a href="https://arxiv.org/abs/2502.11163" target="_blank">arXiv</a>
+    <a href="https://github.com/limenlp/FairLocator" target="_blank">code</a>
+  </div>
+</article>
+<article class="pub-item">
+  <p class="pub-authors">
+    Ziyi Liu, Abhishek Anand, Pei Zhou, Jen-tse Huang, Jieyu Zhao
+  </p>
+  <p class="pub-venue">Jun 2024 · In the proceedings of EMNLP 2024</p>
+
+  <h3 class="pub-title">InterIntent: Investigating Social Intelligence of LLMs via Intention Understanding in an Interactive Game Context</h3>
+
+  <p class="pub-abstract">
+    We introduce InterIntent, a framework for evaluating large language models’ social intelligence
+    by testing their ability to understand and manage intentions within interactive game settings. The
+    paper proposes four dimensions of social intelligence—situational awareness, self-regulation,
+    self-awareness, and theory of mind—each linked to specific game tasks such as intention selection,
+    following, summarization, and guessing. Results show that models perform well on intention selection
+    but lag behind humans in inference tasks, highlighting areas for improvement in assessing social
+    reasoning in LLMs.
+  </p>
+
+  <div class="pub-actions">
+    <a href="https://arxiv.org/abs/2406.12203" target="_blank">arXiv</a>
+    <a href="https://github.com/limenlp/Inter-Intent" target="_blank">code</a>
+  </div>
+</article>
+
+        <article class="pub-item">
+  <p class="pub-authors">
+    Ziyi Liu, Soumya Sanyal, Isabelle Lee, Yongkang Du, Rahul Gupta, Yang Liu, Jieyu Zhao
+  </p>
+  <p class="pub-venue">Nov 2024 · Findings EMNLP 2024</p>
+
+  <h3 class="pub-title">Self-contradictory reasoning evaluation and detection</h3>
+
+  <p class="pub-abstract">
+    This work investigates self-contradictory reasoning in large language models (LLMs), where the
+    model’s internal reasoning fails to support its answers. The authors define and measure the
+    Self-Contra rate across multiple datasets and identify finer-grained categories of contradiction.
+    Results show that models often produce correct answers via reasoning shortcuts or by ignoring
+    contextual evidence, compromising reliability. They further evaluate GPT-4’s ability to detect
+    self-contradictory reasoning and find that even with aided detection, performance (~52.2% F1) lags
+    behind humans (~66.7% F1), underscoring limitations in current LLM reasoning robustness. :contentReference[oaicite:0]{index=0}
+  </p>
+
+  <div class="pub-actions">
+    <a href="https://aclanthology.org/2024.findings-emnlp.213.pdf" target="_blank">PDF</a>
+    <a href="https://github.com/limenlp/Self-Contradictory" target="_blank">code</a>
+  </div>
+</article>
+
+      </section>
+
+   
+
+     
+    </main>
+
+    <script>
+      // Theme handling (light / dark / auto) — similar UX to the referenced site
+      const select = document.getElementById('themeSelect');
+      const root = document.documentElement;
+
+      function applyTheme(mode) {
+        if (mode === 'auto') {
+          const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          root.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+        } else {
+          root.setAttribute('data-theme', mode);
+        }
+      }
+
+      function loadTheme() {
+        const saved = localStorage.getItem('themeMode') || 'auto';
+        select.value = saved;
+        applyTheme(saved);
+      }
+
+      select.addEventListener('change', () => {
+        localStorage.setItem('themeMode', select.value);
+        applyTheme(select.value);
+      });
+
+      // React to system theme changes in auto mode
+      if (window.matchMedia) {
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+          if ((localStorage.getItem('themeMode') || 'auto') === 'auto') applyTheme('auto');
+        });
+      }
+
+      document.getElementById('year').textContent = new Date().getFullYear();
+      loadTheme();
+    </script>
+  </body>
 </html>
